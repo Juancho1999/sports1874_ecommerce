@@ -1,0 +1,57 @@
+[
+    {
+      "id": 1,
+      "nombre": "Remera Nautica",
+      "precio": 15000.00,
+      "stock": 25,
+      "imagen": "../1.jpg",
+      "categoria": "Remera",
+      "cantidad": 0
+    },
+    {
+      "id": 2,
+      "nombre": "Remera Polo",
+      "precio": 25000.0,
+      "stock": 18,
+      "imagen": "../2.jpg",
+      "categoria": "chomba",
+      "cantidad": 0
+    },
+    {
+      "id": 3,
+      "nombre": "Chaleco puffer",
+      "precio": 30000.0,
+      "stock": 12,
+      "imagen": "../3.jpg",
+      "categoria": "Abrigo",
+      "cantidad": 0
+    },
+    {
+      "id": 4,
+      "nombre": "Conjunto T.Hilfiger",
+      "precio": 100000.00,
+      "stock": 15,
+      "imagen": "../4.jpg",
+      "categoria": "Indumentaria",
+      "cantidad": 0
+    },
+    {
+      "id": 5,
+      "nombre": "Pantalon North Face",
+      "precio": 40000.00,
+      "stock": 20,
+      "imagen": "../5.jpg",
+      "categoria": "Pantalon",
+      "cantidad": 0
+    },
+    {
+      "id": 6,
+      "nombre": "Short Nike",
+      "precio": 15000.00,
+      "stock": 30,
+      "imagen": "../6.jpg",
+      "categoria": "Short",
+      "cantidad": 0
+    }
+  ]
+  

@@ -1,0 +1,57 @@
+.contacto-container {
+  padding: 4rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.contact-columns {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.contact-column {
+  flex: 1;
+  min-width: 250px;
+  max-width: 33%;
+  padding: 3rem;
+}
+
+.contact-column h3 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.whatsapp-button {
+  display: inline-block;
+  padding: 0.5rem 2rem;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  margin-top: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-left: 5.3rem;
+}
+
+.whatsapp-button:hover {
+  color: #3db462;
+  
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  font-size: 1.8rem;
+}
+
+.social-icons a {
+  color: black;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #3db46383;
+}

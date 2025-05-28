@@ -1,0 +1,28 @@
+.container {
+    font-family: Arial, sans-serif;
+}
+.marquesina-container {
+  overflow: hidden; /* oculta el texto que sale del contenedor */
+  width: 100%;
+}
+
+.marquesina-texto {
+  display: inline-block;
+  white-space: nowrap;
+  animation: deslizar 10s linear infinite;
+  font-size: 1.2rem;
+  color: #3db462;
+}
+
+@keyframes deslizar {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+}

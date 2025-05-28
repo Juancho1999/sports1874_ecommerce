@@ -1,0 +1,38 @@
+.acerca-de-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.2rem;
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.about-image {
+  width: 1257px;
+  height: auto;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+}
+
+.about-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin: 35px;
+  color: #333;
+}
+
+.about-text h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #111;
+}
+
+.about-text p {
+  margin-bottom: 1.5rem;
+}
+
+.about-text strong {
+  font-weight: bold;
+  color: #3db462;
+}

@@ -1,0 +1,22 @@
+.flex-box{
+    display: flex;
+    width: 1000px;
+    margin: 20px auto;
+}
+
+.left{
+    width: 50%;
+}
+
+.big-img{
+    width: 250px;
+}
+
+.big-img img{
+    width: inherit;
+}
+.cantidadContainer .cantidad-text{
+    font-size: 20px;
+    color: #3db462;
+    margin-bottom: 10px;
+}
