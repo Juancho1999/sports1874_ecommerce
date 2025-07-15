@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import './App.css'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import AcercaDe from './pages/AcercaDe'
 import Contactos from './pages/Contactos'
@@ -9,25 +9,28 @@ import NotFound from './pages/NotFound'
 import Admin from './pages/Admin'
 import DetallesProductos from './components/DetallesProductos'
 import Login from './pages/Login'
+import TitlePage from './components/TitlePage'
 import RutaProtegida from './auth/RutasProtegidas'
 import { CartContext } from './context/CartContext'
 
 function App() {
-  const { cart, productos, cargando, error, handleAddToCart, handleDeleteFromCart, isAuthenticated  } = useContext(CartContext)
+  const { isAuthenticated  } = useContext(CartContext)
 
   return (
-    <Router>
+    <>
+    {/* Este componente se encarga de manejar el título */}
+      <TitlePage />
       <Routes>
 
-        <Route path='/' element={<Home borrarProducto={handleDeleteFromCart} agregarCarrito={handleAddToCart} cart={cart} productos={productos} cargando={cargando} />} />
+        <Route path='/' element={<Home />} />
 
-        <Route path='/acercade' element={<AcercaDe borrarProducto={handleDeleteFromCart}  agregarCarrito={handleAddToCart}  cart={cart} />} />
+        <Route path='/acercade' element={<AcercaDe />} />
 
-        <Route path='/productos' element={<GaleriaDeProductos borrarProducto={handleDeleteFromCart} agregarCarrito={handleAddToCart} cart={cart} productos={productos} cargando={cargando} />} />
+        <Route path='/productos' element={<GaleriaDeProductos />} />
 
-        <Route path='/productos/:id' element={<DetallesProductos productos={productos} borrarProducto={handleDeleteFromCart}  agregarCarrito={handleAddToCart}  cart={cart} />} />
+        <Route path='/productos/:id' element={<DetallesProductos />} />
 
-        <Route path='/contacto' element={<Contactos borrarProducto={handleDeleteFromCart}  agregarCarrito={handleAddToCart}  cart={cart} />} />
+        <Route path='/contacto' element={<Contactos />} />
 
         <Route path='/admin' element={<RutaProtegida isAuthenticated={isAuthenticated}> <Admin /> </RutaProtegida>} />
 
@@ -36,8 +39,7 @@ function App() {
         <Route path='*' element={<NotFound />} />
 
       </Routes>
-
-    </Router>
+    </>  
   )
 }
 

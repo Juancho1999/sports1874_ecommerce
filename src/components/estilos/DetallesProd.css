@@ -1,0 +1,202 @@
+.main-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0px 20px;
+}
+
+.flex-box {
+  display: flex;
+  gap: 50px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.left {
+  flex: 1;
+  text-align: center;
+}
+
+.big-img {
+  max-width: 350px;
+  margin: auto;
+}
+
+.big-img img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.right {
+  flex: 1;
+  padding: 20px 0;
+}
+
+.right .categoria {
+  color: #ff9900;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.right h1 {
+  font-size: 1.8rem;
+  text-align: left;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.right .ratings {
+  color: #ffc107;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.right .price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+.cantidadContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #333;
+  margin: 15px 0;
+}
+
+.qtyButton {
+  background-color: #eee;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.qtyButton:hover {
+  background-color: #ddd;
+}
+
+.cantidad-text {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.btn-box {
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.btn-box button {
+  padding: 12px 18px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+}
+
+.btn-box button:first-child {
+  background-color: #099a51;
+  color: white;
+  border: 2px solid black;
+;
+}
+
+.btn-box button:first-child:hover {
+  background-color: #3db462;
+}
+
+.btn-box button:last-child {
+  background-color: gray;
+  color: white;
+}
+
+.text-bottom-img ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+.descripcion {
+  margin-top: 30px;
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+
+@media (max-width: 768px) {
+  .flex-box {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .left, .right {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .btn-box {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-box button {
+    width: 100%;
+  }
+
+  .right h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .right .price {
+    font-size: 1.3rem;
+  }
+
+  .cantidad-text {
+    font-size: 18px;
+  }
+
+  .cantidadContainer{
+    margin-left: 7rem;
+    width: 30%;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-container {
+    padding: 20px 10px;
+  }
+
+  .right h1 {
+    font-size: 1.3rem;
+  }
+
+  .right .price {
+    font-size: 1.1rem;
+  }
+
+  .descripcion {
+    font-size: 14px;
+  }
+
+  .qtyButton {
+    padding: 5px 10px;
+    font-size: 16px;
+  }
+
+  .cantidad-text {
+    font-size: 16px;
+  }
+}

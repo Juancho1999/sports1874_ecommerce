@@ -4,11 +4,11 @@ import Footer from '../components/estaticos/Footer'
 import about from '../assets/about.png'
 import './AcercaDe.css'
 
-const AcercaDe = ({ cart, borrarProducto }) => {
+const AcercaDe = () => {
   return (
     <>
-      <Header borrarProducto={borrarProducto} cartItems={cart} />
-      <main className="main-container acerca-de-container">
+      <Header />
+      <main className="main-container-acerca-de-container">
         <img src={about} alt="Nosotros" className="about-image" />
         <section className="about-text">
           <p>

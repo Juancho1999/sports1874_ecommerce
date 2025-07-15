@@ -1,0 +1,87 @@
+.carousel-wrapper {
+  width: 100%;
+  overflow: hidden;
+  margin: 2rem 0;
+  padding: 1rem;
+}
+
+.carousel-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 1rem;
+  padding: 1rem 0;
+  scroll-snap-type: x mandatory;
+
+  /* Oculta la barra de scroll visualmente */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE y Edge */
+}
+
+.carousel::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.carousel-slide {
+  flex: 0 0 auto;
+  width: 250px; /* Esto hace que cada tarjeta tenga ancho fijo en desktop */
+  scroll-snap-align: center;
+}
+
+.arrow-btn {
+  background-color: #111;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s;
+}
+
+.arrow-btn:hover {
+  background-color: #555;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 768px) {
+  .carousel-controls {
+    gap: 0.5rem;
+  }
+
+  .carousel-wrapper {
+  width: 100%;
+  overflow: hidden;
+  margin: 2rem 0;
+  padding: 0;
+}
+
+  .carousel-slide {
+    width: 80%; /* Aumentamos el tamaño en mobile */
+    min-width: 200px; /* Para que no se vea demasiado angosta */
+  }
+
+  .arrow-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 1rem;
+  }
+
+  .carousel-title {
+    font-size: 1.2rem;
+  }
+}

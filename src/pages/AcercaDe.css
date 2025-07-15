@@ -9,17 +9,18 @@
 }
 
 .about-image {
-  width: 1257px;
+  width: 100%;
   height: auto;
   margin-bottom: 2rem;
   border-radius: 8px;
 }
 
 .about-text {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  margin: 35px;
-  color: #333;
+  font-size: 1rem;
+  line-height: 3;
+  font-weight: 600;
+  margin: 28px;
+  color: #111;
 }
 
 .about-text h1 {
@@ -29,7 +30,7 @@
 }
 
 .about-text p {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .about-text strong {

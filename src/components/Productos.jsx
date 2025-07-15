@@ -1,24 +1,22 @@
-import React , {useState}from 'react'
-import './styleProductos.css'
+import React , {useState} from 'react'
+import "./estilos/styleProductos.css";
+
 import { Link } from 'react-router-dom';
-const Productos = ({producto,agregarCarrito}) => {
+import { CartContext } from '../context/CartContext';
 
-  const [cantidad, setCantidad] = useState(1);
+const Productos = ({producto}) => {
 
-  const increase = () => setCantidad(prev => (prev < product.stock ? prev + 1 : prev));
-  const decrease = () => setCantidad(prev => (prev > 1 ? prev - 1 : 1));
-
-  return (
-            <div className="card">
-                <div className='imganContainer'>
-                  <img src={producto.imagen}alt="" className='imagen'/>
-                </div>
-                <div className="card-content">
-                    <h4 className="card-title mt-3">{producto.nombre}</h4>
-                    <h5 className="card-title">${producto.precio}</h5>
-                    <Link className='btn' to={`/productos/${producto.id}`}>Ver mas</Link>
-                </div>
-            </div>
+  return (<>
+            <div className="listItem">
+                  <img src={producto.imagen} alt="" className='listItemImage'/>
+                  <span className="price">${producto.precio}</span>
+                  <span className="sub">{producto.nombre}</span>
+                  <span className="sub">{producto.categoria}</span>
+                  <div className='listItemButton'>    
+                        <Link className="btn" to={`/productos/${producto.id}`}>Ver mas</Link>
+                  </div>      
+            </div>  
+          </>
   )
 }
 

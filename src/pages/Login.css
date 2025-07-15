@@ -1,0 +1,43 @@
+.main-login{
+    display: flex;
+     min-height: calc(100vh - 0px);
+    width: 100%;
+    justify-content: center;    
+    background-image: linear-gradient(to top, #000000, #0e2916);
+    align-content: center;
+    align-items: center;
+}
+
+.login-overlay{
+    text-align: center;
+}
+
+.form-input{
+    margin: 20px;
+}
+
+.form-input .form-logo{
+    width: 120px;
+    text-align: center;
+}
+
+.form-input input{
+    width: 176px;
+    height: 23px;
+}
+
+.form-input button{
+    font-size: 14px;
+    /*background-color: #949463;*/
+    background-color: #128636; 
+    color: #ffffff;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-input button:hover{
+    font-size: 15px;
+    background-color: #1286365e;
+}

@@ -7,7 +7,7 @@ const Contactos = ({ cart, borrarProducto }) => {
   return (
     <>
       <Header borrarProducto={borrarProducto} cartItems={cart} />
-      <main className="main-container contactos-container">
+      <main className="contacto-container">
         <div className="contact-columns">
           {/* Columna 1 - MAIL */}
           <div className="contact-column">
@@ -32,7 +32,7 @@ const Contactos = ({ cart, borrarProducto }) => {
           <div className="contact-column">
             <h3>REDES SOCIALES</h3>
             <p>Seguinos en nuestras redes para enterarte de todas las novedades y campañas en curso.</p>
-            <p>@galponderopa</p>
+            <p>@Sport1874</p>
             <div className="social-icons">
               <a href="#"><i className="fa-brands fa-linkedin"></i></a>
               <a href="#"><i className="fa-brands fa-instagram"></i></a>
