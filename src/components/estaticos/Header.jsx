@@ -46,7 +46,7 @@ const Header = () => {
         </div>
       <nav className="navbar">
         <div className="logo">
-          <imagen />
+          <img src={imagen} />
         </div>
 
         <div className="menu-icon" onClick={() => setMenuOpen(!isMenuOpen)}>
