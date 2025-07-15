@@ -3,6 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
 import './Header.css';
 import Cart from '../Cart';
+import imagen from '../../assets/1874.png';
 
 const Header = () => {
   
@@ -45,7 +46,7 @@ const Header = () => {
         </div>
       <nav className="navbar">
         <div className="logo">
-          <img src="../../src/assets/1874.png" alt="logo" />
+          <imagen />
         </div>
 
         <div className="menu-icon" onClick={() => setMenuOpen(!isMenuOpen)}>
