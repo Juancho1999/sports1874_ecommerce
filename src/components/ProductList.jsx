@@ -3,52 +3,43 @@ import Productos from './Productos';
 import { CartContext } from '../context/CartContext';
 import './estilos/styleProductos.css';
 import './estilos/ProductListCarrusel.css';
-import Pagination from 'react-bootstrap/Pagination'; // Importamos el componente de paginación
+import Pagination from 'react-bootstrap/Pagination';
 
+const ProductList = ({ modo = "default" }) => {
+  const { productos, busqueda, setBusqueda, productosFiltrados } = useContext(CartContext);
+  const carouselRef = useRef(null);
 
-const ProductList = ({ modo = "default" }) => { // Recibe una prop para definir el tipo de visualización
-  const { productos, busqueda, setBusqueda, productosFiltrados } = useContext(CartContext); // Extraemos los productos del contexto
-  const carouselRef = useRef(null); // Referencia al contenedor del carrusel para manejar el scroll
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 4;
 
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = productosFiltrados.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(productosFiltrados.length / itemsPerPage);
 
-  const [currentPage, setCurrentPage] = useState(1); // Estado para la página actual
-
-  const itemsPerPage = 4; // Cantidad de productos por página
-
-  const indexOfLastItem = currentPage * itemsPerPage; // Índice del último producto de la página actual
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage; // Índice del primer producto de la página actual
-  const currentItems = productosFiltrados.slice(indexOfFirstItem, indexOfLastItem); // Productos de la página actual
-
-  const totalPages = Math.ceil(productosFiltrados.length / itemsPerPage); // Total de páginas
-
-  // Función para hacer scroll horizontal
   const scroll = (direction) => {
-    const scrollAmount = 320; // Cantidad de píxeles a mover
+    const scrollAmount = 320;
     if (carouselRef.current) {
       carouselRef.current.scrollBy({
-        left: direction === 'left' ? -scrollAmount : scrollAmount, // Dirección del scroll
-        behavior: 'smooth' // Animación suave
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
       });
     }
   };
 
   useEffect(() => {
-  setCurrentPage(1); // Cada vez que cambia la búsqueda, volvemos a la página 1
-}, [busqueda]);
+    setCurrentPage(1);
+  }, [busqueda]);
 
-
-  // Si se recibe "modo=carrusel", renderizamos el carrusel
+  // Modo carrusel
   if (modo === 'carrusel') {
-    const productosCarrusel = productos.slice(0, 6); // mostrar solo los primeros 6
+    const productosCarrusel = productos.slice(0, 6);
 
     return (
       <div className="carousel-wrapper">
         <h2 className="carousel-title">Novedades</h2>
         <div className="carousel-controls">
-          {/* Flecha izquierda */}
           <button onClick={() => scroll('left')} className="arrow-btn">◀</button>
-
-          {/* Contenedor deslizable */}
           <div className="carousel" ref={carouselRef}>
             {productosCarrusel.map((producto) => (
               <div className="carousel-slide" key={producto.id}>
@@ -56,47 +47,64 @@ const ProductList = ({ modo = "default" }) => { // Recibe una prop para definir 
               </div>
             ))}
           </div>
-
-          {/* Flecha derecha */}
           <button onClick={() => scroll('right')} className="arrow-btn">▶</button>
         </div>
       </div>
     );
   }
 
-  // Si no es modo carrusel, mostramos la lista normal (grilla)
+  // Modo grilla con paginación
   return (
     <>
       <h2 className="product-list-title">Indumentaria</h2>
-      {/* Contenedor de búsqueda */}
       <div className='search-container'>
         <label className='search-label'>Buscar productos: </label>
         <input
           type='text'
-          placeholder='Buscar productos...'
+          placeholder='Ejemplo: remera, pantalón...'
           value={busqueda}
           onChange={(e) => setBusqueda(e.target.value)}
         />
       </div>
+
       <div className="list">
         {currentItems.map((producto) => (
           <Productos key={producto.id} producto={producto} />
         ))}
       </div>
-      {/* Paginación */}
-      <Pagination className="pagination">
-        <Pagination.Prev onClick={() => setCurrentPage( p => Math.max(p-1, 1) )} disabled={currentPage === 1} />
-        {
-        Array.from({length:totalPages}, (_, i) => (
-          <Pagination.Item
-            key={i + 1}
-            active={i + 1 === currentPage}
-            onClick={() => setCurrentPage(i + 1)}
-          >
-            {i + 1}
-          </Pagination.Item>
-        ))}
-        <Pagination.Next onClick={() => setCurrentPage(p => Math.min(p+1, totalPages) )} disabled={currentPage === totalPages} />
+
+      {/* PAGINACIÓN MEJORADA */}
+      <Pagination className="pagination justify-content-center mt-4">
+        <Pagination.First onClick={() => setCurrentPage(1)} disabled={currentPage === 1} />
+        <Pagination.Prev onClick={() => setCurrentPage(p => Math.max(p - 1, 1))} disabled={currentPage === 1} />
+
+        {Array.from({ length: totalPages }, (_, i) => {
+          const page = i + 1;
+          const isVisible =
+            page === 1 || page === totalPages || Math.abs(currentPage - page) <= 1;
+
+          const showEllipsisBefore = page === 2 && currentPage > 3;
+          const showEllipsisAfter = page === totalPages - 1 && currentPage < totalPages - 2;
+
+          return (
+            <React.Fragment key={page}>
+              {showEllipsisBefore && <Pagination.Ellipsis disabled />}
+              {isVisible && (
+                <Pagination.Item
+                  active={page === currentPage}
+                  aria-label={page === currentPage ? 'Página actual' : `Ir a la página ${page}`}
+                  onClick={() => setCurrentPage(page)}
+                >
+                  {page}
+                </Pagination.Item>
+              )}
+              {showEllipsisAfter && <Pagination.Ellipsis disabled />}
+            </React.Fragment>
+          );
+        })}
+
+        <Pagination.Next onClick={() => setCurrentPage(p => Math.min(p + 1, totalPages))} disabled={currentPage === totalPages} />
+        <Pagination.Last onClick={() => setCurrentPage(totalPages)} disabled={currentPage === totalPages} />
       </Pagination>
     </>
   );
