@@ -92,3 +92,4 @@ git clone https://github.com/Juancho1999/sports1874_ecommerce.git
 
             npm run dev
 
+## Unica forma de acceder al Panel Administrativo es mediante la siguiente ruta: /admin
